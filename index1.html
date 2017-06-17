@@ -1,1 +1,97 @@
-index1.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Jude moon">
+  <title>Titanic Data Visualization</title>
+  <script src="http://d3js.org/d3.v3.min.js"></script> 
+  <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script> 
+    <style>
+      h1 {
+        background-color: black;
+        color: floralwhite;
+        font-family: Helvetica, sans-serif;
+        width: 100%;
+        height: 80px;
+        text-align: center;
+        padding-top: 30px;
+      }
+
+      h2 {
+        font-size: 1.4em;
+        text-transform: uppercase;
+        font-family: Helvetica;
+        color: #000;
+        margin-top: 0;
+      }
+
+      div.text {
+        font-family: Helvetica;
+        padding: 5px;
+        margin: 20px;
+        border-radius: 10px; 
+      }
+      
+    </style>
+
+    <script type="text/javascript">
+      function draw_bar(data) {
+
+        "use strict"; // enforce a restricted subset of JavaScript within this function
+        var margin = 75,
+            width = 1400 - margin,
+            height = 600 - margin;
+
+        var svg = d3.select("#plotContainer1")
+            .append("svg")
+              .attr("width", width + margin)
+              .attr("height", height + margin)
+            .append('g') // group
+                .attr('class','chart');
+
+        //debugger; //javascript debugger
+
+        /*
+          Dimple.js Chart construction code 
+        */
+
+        var myChart = new dimple.chart(svg, data);
+        var chart = new dimple.chart(svg, data);
+        
+        chart.defaultColors = [
+          new dimple.color("#F6CEF5"),
+          new dimple.color("#81DAF5"),
+        ];
+        
+        chart.addCategoryAxis("x", ["Class","Sex"]);
+        chart.addMeasureAxis("y", "Survival Percentage (%)");
+        chart.addSeries("Sex", dimple.plot.bar);
+        chart.addLegend(350, 80, 380, 20, "right");
+        chart.draw();
+        };
+
+    </script>
+
+  </head>
+<body>
+  <h1 class="main-title">Titanic Survivors</h1>
+  <div class="summary">
+    <h2 class="text-title">Summary</h2>
+    <div class="text">
+      <p>The objective of this project is to create effective visualizations of Titanic dataset, which contains samples (891 out of total 2,224 people including passengers and crew on board) of demographics and passenger information such as passenger class, sex, age, survived (0: dead and 1: survived), etc.</p>
+      <p>The key story I would like to convey is that females and higher socio-economic status (1st and 2nd classes) more likely survived from the Titanic disaster than males and lower socio-economic status (3rd class). The groups of 1st and 2nd class females had a survival rate greater than 92%. This was far greater than the average survival rate of the sample, which was 38%.</p>
+      <p>Considering that females were 35% and females with 1st and 2nd classes were only 24% of total sample size, the evidence that such minor group showed greater survival infers that the people put on lifeboats was not randomly taken but selectively. This supports that features of being female and higher classes were top priorities to be put on lifeboats.</p>
+    </div>
+  </div>
+
+  <div class="plot">
+    <h2 class="plot-title">Choice1: Bar Chart</h2>
+    <div id="plotContainer1"> </div>
+    <script type="text/javascript">
+      d3.csv("titanic_data.csv", draw_bar);
+    </script>
+  </div>
+
+
+</body>
+</html>
