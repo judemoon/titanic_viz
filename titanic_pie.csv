@@ -1,0 +1,13 @@
+﻿Class,Sex,Survived,Count,Percent
+1st,Female,No,3,3%
+1st,Female,Yes,91,97%
+1st,Male,No,77,63%
+1st,Male,Yes,45,37%
+2nd,Female,No,6,8%
+2nd,Female,Yes,70,92%
+2nd,Male,No,91,84%
+2nd,Male,Yes,17,16%
+3rd,Female,No,72,50%
+3rd,Female,Yes,72,50%
+3rd,Male,No,300,86%
+3rd,Male,Yes,47,14%

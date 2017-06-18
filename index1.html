@@ -4,11 +4,14 @@
   <meta charset="utf-8">
   <meta name="author" content="Jude moon">
   <title>Titanic Data Visualization</title>
-  <script src="http://d3js.org/d3.v3.min.js"></script> 
-  <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script> 
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
   <link href="https://www.jasondavies.com/parallel-sets/d3.parsets.css" rel="stylesheet" />
   <script src="https://www.jasondavies.com/parallel-sets/d3.parsets.js"></script>
+  <!--<script src="/lib/d3.v4.3.0.js"></script>-->
+  <!--<script src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script>-->
+  <!--<script src="http://d3js.org/d3.v4.min.js"></script>-->
     <style>
       h1 {
         background-color: black;
@@ -82,6 +85,49 @@
         legend.fontSize = "20px";
 
         chart.draw();
+      };
+
+      function draw_pie(data) {
+
+        "use strict"; 
+        var margin = 75,
+            width = 1000 - margin,
+            height = 600 - margin;
+
+        var svg = d3.select("#plotContainer3")
+            .append("svg")
+              .attr("width", width + margin)
+              .attr("height", height + margin)
+            .append('g') // group
+                .attr('class','chart');
+
+        //debugger; 
+
+        /*
+          Dimple.js Chart construction code 
+        */
+        var chart = new dimple.chart(svg, data);
+        
+        chart.defaultColors = [
+          new dimple.color("#6f757a"),
+          new dimple.color("#1179db"),
+        ];
+        
+        var x = chart.addCategoryAxis("x", "Class");
+        x.fontSize = "20px";
+        x.title = "Socio-Economic Class";
+        
+        var y = chart.addCategoryAxis("y", "Sex");
+        y.fontSize = "20px";
+
+        var z = chart.addMeasureAxis("z", "Count");
+
+        var pies = chart.addSeries("Survived", dimple.plot.bubble);
+
+        var legend = chart.addLegend(500, 80, 380, 20, "right");
+        legend.fontSize = "20px";
+
+        chart.draw();
         };
 
 
@@ -142,10 +188,10 @@
   </div>
 
   <div class="plot">
-    <h2 class="plot-title">Choice3: Circle + Pie Chart</h2>
+    <h2 class="plot-title">Choice3: Pie Matrix</h2>
     <div id="plotContainer3"> </div>
     <script type="text/javascript">
-      
+      d3.csv("titanic_pie.csv", draw_pie);
     </script>
   </div>
 
