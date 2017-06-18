@@ -1,12 +1,12 @@
 # Make Effective Data Visualization Project
 
 June 2017, by Jude Moon
-***
+
 ## Summary
 The objective of this project is to create an effective visualization of Titanic dataset, which contains samples (891 out of total 2,224 people including passengers and crew on board) of demographics and passenger information such as passenger class, sex, age, survived (0: dead and 1: survived), etc. 
 The key story I would like to convey is that females and higher socio-economic status (1st and 2nd classes) more likely survived from the Titanic disaster than males and lower socio-economic status (3rd class). The groups of 1st and 2nd class females had a survival rate greater than 92%. This was far greater than the average survival rate of the sample, which was 38%. 
 Considering that females were 35% and females with 1st and 2nd classes were only 24% of total sample size, the evidence that such minor group showed greater survival infers that the people put on lifeboats was not randomly taken but selectively. This supports that features of being female and higher classes were top priorities to be put on lifeboats.
-***
+
 ## I Need Feedback
 - What do you notice in the visualization?
 - What questions do you have about the data?
@@ -16,7 +16,7 @@ Considering that females were 35% and females with 1st and 2nd classes were only
 
 ### Technical Questions
 - How can I add charts from two different versions of d3? For now, they are separated into two different html files.
-***
+
 ## Design
 
 ### What factors do I have?
