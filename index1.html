@@ -34,6 +34,10 @@
         margin: 20px;
         border-radius: 10px; 
       }
+
+      .dimension {
+        font-family: Helvetica;
+      }
       
     </style>
 
@@ -114,21 +118,36 @@
 
   <div class="plot">
     <h2 class="plot-title">Choice2: Parallel Sets Plot</h2>
-    <div id="vis"> </div>
+    <div id="plotContainer2"> </div>
     <script type="text/javascript">
       var chart = d3.parsets()
-        .dimensions(["Survived", "Sex", "Age", "Class"]);
+        .dimensions(["Survived", "Sex", "Class"]);
+      
 
-      var vis = d3.select("#vis").append("svg")
+      var vis = d3.select("#plotContainer2").append("svg")
         .attr("width", chart.width())
         .attr("height", chart.height());
 
-      d3.csv("titanic.csv", function(error, csv) {
+      d3.csv("titanic_parsets.csv", function(error, csv) {
         vis.datum(csv).call(chart);
       });
     </script>
   </div>
+  </br>
+  </br>
+  </br>
+  </br>
+  </br>
+  </br>
+  </div>
 
+  <div class="plot">
+    <h2 class="plot-title">Choice3: Circle + Pie Chart</h2>
+    <div id="plotContainer3"> </div>
+    <script type="text/javascript">
+      
+    </script>
+  </div>
 
 </body>
 </html>
