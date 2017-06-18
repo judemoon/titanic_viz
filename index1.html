@@ -39,7 +39,7 @@
 
         "use strict"; // enforce a restricted subset of JavaScript within this function
         var margin = 75,
-            width = 1400 - margin,
+            width = 1000 - margin,
             height = 600 - margin;
 
         var svg = d3.select("#plotContainer1")
@@ -59,15 +59,25 @@
         var chart = new dimple.chart(svg, data);
         
         chart.defaultColors = [
-          new dimple.color("#F6CEF5"),
-          new dimple.color("#81DAF5"),
+          new dimple.color("#d6242d"),
+          new dimple.color("#1179db"),
         ];
         
-        chart.addCategoryAxis("x", ["Class","Sex"]);
-        chart.addMeasureAxis("y", "Percent");
+        var x = chart.addCategoryAxis("x", ["Class","Sex"]);
+        x.fontSize = "20px";
+        x.title = "Socio-Economic Class";
+        
+        var y = chart.addMeasureAxis("y", "Percent");
+        y.fontSize = "20px";
+        y.title = "Survival Percentage (%)";
+        
         chart.addSeries("Sex", dimple.plot.bar);
-        chart.addLegend(350, 80, 380, 20, "right");
+        
+        var legend = chart.addLegend(500, 80, 380, 20, "right");
+        legend.fontSize = "20px";
+
         chart.draw();
+        
         };
 
     </script>
