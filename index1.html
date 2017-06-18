@@ -81,35 +81,6 @@
         };
 
 
-        function draw_paraset(data) {
-
-        "use strict"; // enforce a restricted subset of JavaScript within this function
-        var margin = 75,
-            width = 1000 - margin,
-            height = 600 - margin;
-
-        var svg = d3.select("#plotContainer2")
-            .append("svg")
-              .attr("width", width + margin)
-              .attr("height", height + margin)
-            .append('g') // group
-                .attr('class','chart');
-
-        debugger; //javascript debugger
-
-        /*
-          d3.parsets.js Chart construction code 
-        */
-        var chart = d3.parsets()
-                    .dimensions(["Survived", "Sex", "Pclass"]);
-
-        
-
-
-        chart.draw();
-        
-        };
-
     </script>
 
   </head>
@@ -143,13 +114,18 @@
 
   <div class="plot">
     <h2 class="plot-title">Choice2: Parallel Sets Plot</h2>
-    <div id="plotContainer2"> </div>
+    <div id="vis"> </div>
     <script type="text/javascript">
+      var chart = d3.parsets()
+        .dimensions(["Survived", "Sex", "Age", "Class"]);
+
+      var vis = d3.select("#vis").append("svg")
+        .attr("width", chart.width())
+        .attr("height", chart.height());
+
       d3.csv("titanic.csv", function(error, csv) {
         vis.datum(csv).call(chart);
       });
-
-      d3.csv("titanic_data.csv", draw_paraset);
     </script>
   </div>
 
