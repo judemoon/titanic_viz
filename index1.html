@@ -64,7 +64,7 @@
         ];
         
         chart.addCategoryAxis("x", ["Class","Sex"]);
-        chart.addMeasureAxis("y", "Survival Percentage (%)");
+        chart.addMeasureAxis("y", "Percent");
         chart.addSeries("Sex", dimple.plot.bar);
         chart.addLegend(350, 80, 380, 20, "right");
         chart.draw();
@@ -88,7 +88,7 @@
     <h2 class="plot-title">Choice1: Bar Chart</h2>
     <div id="plotContainer1"> </div>
     <script type="text/javascript">
-      d3.csv("titanic_data.csv", draw_bar);
+      d3.csv("titanic_bar.csv", draw_bar);
     </script>
   </div>
 
