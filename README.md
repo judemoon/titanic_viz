@@ -32,6 +32,45 @@ Another option can be Parallel Sets Plot.  In this case, I will have 3 categoric
 ## Choice3.
 Lastly, I think circle chart + pie chart can be another option. I will have 6 circle representing each group (Sex * Class). X-axis can be sex variable and y-axis can be class variable. For example, the left 3 circles are female and the right 3 circles are male groups. The top 2 circles are 1st class, middle 2 circles are 2nd class, the bottom 2 circles are 3rd class groups. The size of the circle represents the size of each group. Each circle is pie chart for each group, showing proportion of survival. I can encode color first by dead and then by sex. All the dead pie is black. Female survived is pink and male survived is sky blue. I don’t think that I will need a legend for color but the labels of the variable titles and levels will be necessary. I don’t think the animation is necessary but I can add an interaction by mouse cursor, showing  the percentage and actual count of people.
 
+### What choice is reviewers' favorite?
+The most favorite choice by reviewers was the bar chart. It is a classical chart so reviewers are familar with the chart components and layout and well-trained with how to read the chart. On the contrary, the least favorite was the parallel sets plot. It is not straight forward to highlight the key story. Although it has a great level of interaction and flexibility on the plot, the reviewers think that it is less focus on the key story.   
+
+
+## Feedback
+### Reviewer1
+Nice stuff going one, this looks neat.
+I struggled to understand the parallel plot. It took me some good time (several minutes) to understand the plot, yet I still do not get it much. 
+
+Whereas for the bar chart, I was able to understand the story right away; discrepancy in class and gender in the deaths/survival rates of the titanic tragedy. It didn't take me much time to draw useful information from that one, and If I am to write an article, I would not need much time understanding the data from that figure. 
+
+The pie chart does a similar job, but for me, it was the bar chart being much more effective. What I like more about the pie is that the tool tip gives a better data summary in the pie chart, better than the bar plot. 
+
+I see that you are using D3JS. We were looking into that library for visualization in the computational course I was taking last spring. Good choice.
+Have you played yet with JQuery? Also consider R and ShinyR.
+
+### Reviewer2
+Choice #1
+•	What do you notice in the visualization? - It is clean and easy to follow. 
+•	What questions do you have about the data? - None
+•	What relationships do you notice? - The survived vs. dead is clearly displayed as the classes lower. 
+•	What do you think is the main takeaway from this visualization? A classic graph that is easy to understand.
+•	Is there something you don’t understand in the graphic? - It's very clear. 
+Choice #2
+•	What do you notice in the visualization? - The information in the graph seems clouded. 
+•	What questions do you have about the data? - How can I better understand the information in the graph. 
+•	What relationships do you notice? - I don't. 
+•	What do you think is the main takeaway from this visualization? - What am I looking at. 
+•	Is there something you don’t understand in the graphic? - Unfortunately, I do not understand the information in the graph other than it's supposed to compare the survival rate by sex and class. 
+Choice #3
+•	What do you notice in the visualization? - It is clean and easy to follow.
+•	What questions do you have about the data? - None
+•	What relationships do you notice? - The survived vs. dead is clearly displayed as the classes lower. 
+•	What do you think is the main takeaway from this visualization? - It wouldn't have been favorable to be a male in 3rd class.
+•	Is there something you don’t understand in the graphic? - It's very clear. 
+
+### Reviewr3
+I believe choice #1, the bar chart, is the best. It is easy to read and understand. You may want to add labels for the x-axis meaning 1st class, 2nd class, and 3rd class to improve it.
+
 ***
 ## Files
 - index1.html: html, css, and js to create 3 charts using d3.v3, dimple.v2.0.0, and d3.parsets - initial version
