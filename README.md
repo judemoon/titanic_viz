@@ -32,7 +32,7 @@ Lastly, I think circle chart + pie chart can be another option. I will have 6 ci
 
 
 ## Feedback
-### Reviewer1
+#### Reviewer1
 Nice stuff going one, this looks neat.
 I struggled to understand the parallel plot. It took me some good time (several minutes) to understand the plot, yet I still do not get it much. 
 
@@ -43,7 +43,7 @@ The pie chart does a similar job, but for me, it was the bar chart being much mo
 I see that you are using D3JS. We were looking into that library for visualization in the computational course I was taking last spring. Good choice.
 Have you played yet with JQuery? Also consider R and ShinyR.
 
-### Reviewer2
+#### Reviewer2
 Choice #1
 •	What do you notice in the visualization? - It is clean and easy to follow. 
 •	What questions do you have about the data? - None
@@ -65,19 +65,20 @@ Choice #3
 •	What do you think is the main takeaway from this visualization? - It wouldn't have been favorable to be a male in 3rd class.
 •	Is there something you don’t understand in the graphic? - It's very clear. 
 
-### Reviewer3
+#### Reviewer3
 I believe choice #1, the bar chart, is the best. It is easy to read and understand. You may want to add labels for the x-axis meaning 1st class, 2nd class, and 3rd class to improve it.
 
-### Reviewer4
+#### Reviewer4
 I think the Bar Chart is the easiest to understand, but I wonder if the scatter plot can be shown in a different way. Perhaps that information is better suited on the tooltip, or animated outside the chart area.The parralel sets plot is interesting and could be improved by labelling or a legend on the colors. (ie. instead of yes/no, state survived/not survived). Otherwise it's really creative.
 
-### Reviewer5
+#### Reviewer5
 I like the different types of visuals that you created. Out of the three, I think the bar chart represent the data better. It seems like you were trying to plot a black dot as the total for each sex for each bar and that was a little confusing to me. You could consider updating the plot with the totals only?
 
-### Udacity Reviewer by the first project submission
+#### Udacity Reviewer by the first project submission
 Great work with the overall design of the visualization. You have successfully represented sample size of each demographic with a pie chart that uses area of the pie to encode number of passengers rather than radius (which is a common pitfall). The colors for the sex and survival features are both intuitive and offer easy interpretation :clap:
 
 The only required change here should be some way to interpret the group size from looking at the plot (ie a legend). Alternatively you could format the y-axis of the second chart to be smaller and show a few tick marks. Essentially, there needs to be some way to interpret the size of the pie charts on the visualization. You may be able to get away with just the tooltip, but in that case the y-axis with Group Size should be removed. I would make that the title for chart 2 instead of the y-axis. Try and see if you can create a legend for the pie chart size first, and then go from there.
+
 
 ## Design Part2. after coding and getting feedback
 
@@ -85,15 +86,22 @@ The only required change here should be some way to interpret the group size fro
 The most favorite choice by reviewers was the bar chart. It is a classical chart so reviewers are familiar with the chart components and layout and well-trained with how to read the chart. On the contrary, the least favorite was the parallel sets plot. It is not straight forward to highlight the key story. Although it has a great level of interaction and flexibility on the plot, the reviewers think that it is less focus on the key story.   
 
 ### How did I make improvements?
+#### Revise1
 The drawback of using the bar chart only is that it does not include count summary, while the pie matrix does. Thus, I combined the two charts. I still think that bar chart is the most effective to highlight the findings, and so I placed the bar chart on the top while pie matrix is presented as a supplementary chart. One of reviewers recommended to add "class" into the labels, but I didn't implement it because that will increase redundancy in the chart.
+
+#### Revise2
+The comments from the Udacity Reviewer, Reviewer4 & 5 said that separating the pie chart (or scatter plot from the previous version) from the bar chart will make the points clearer. And I agree with that. I created the second bar chart below the first bar chart. I have chosen the bar chart instead of pie matrix because the bar shows the difference in values more accurately than pie chart. I encoded colors by “Survived”: green for survived and black for dead. 
+The first bar chart focuses on relative survival rate within each group, meaning that the sample number of each group was relativized to 100% for the y axis. The second chart focuses on absolute survival count, emphasizing the difference in group size. The tricky thing on the second chart was that I can encode colors either by survived or sex. I decided to encode colors by survived and updated the x-axis title to describe that a pair of "Female" and "Male" bars are shown in each class. The second chart alone may not be very descriptive because there is no clear encoding of "Female" and "Male" and viewers can be confused by this. However, I think that viewers see the first chart and can learn the order of bars, and then they can understand the second chart without trouble. Plus, the tooltip can guide the right label for each bar.
+
 
 ***
 ## Files
 - index1.html: html, css, and js to create 3 charts using d3.v3, dimple.v2.0.0, and d3.parsets - initial version
 - index2.html: html, css, and js to update the third chart with d3.v4 and dimple.v2.3.0
+- index3.html: html, css, and js of project draft for the first submission 
 - index_final.html: html, css, and js to create the final chart
-- titanic_bar.csv: data summary file for 1st chart in index1.html
+- titanic_bar.csv: data summary file for 1st chart in index1.html, index3.html, and index_final.html
 - titanic_parsets.csv: data file for 2nd chart in index1.html 
-- titanic_pie.csv: data summary file for 3rd chart in index1.html and index2.html
+- titanic_pie.csv: data summary file for 3rd chart in index1.html, index2.html, and index_final.html
 - titanic_data.csv: original data file from [Udacity Project Details](https://classroom.udacity.com/nanodegrees/nd002/parts/0021345403/modules/317671873575461/lessons/3176718735239847/concepts/54201485780923)
 
