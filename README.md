@@ -1,6 +1,7 @@
 # Make Effective Data Visualization Project
 
 June-July 2017, by Jude Moon
+[html link](http://bl.ocks.org/judemoon/raw/3c619690fc6e2910abd1eed97b09242d/)
 
 ## Summary
 The objective of this project is to create an effective visualization of Titanic dataset, which contains samples (891 out of total 2,224 people including passengers and crew on board) of demographics and passenger information such as passenger class, sex, age, survived (0: dead and 1: survived), etc. 
@@ -90,7 +91,7 @@ The most favorite choice by reviewers was the bar chart. It is a classical chart
 The drawback of using the bar chart only is that it does not include count summary, while the pie matrix does. Thus, I combined the two charts. I still think that bar chart is the most effective to highlight the findings, and so I placed the bar chart on the top while pie matrix is presented as a supplementary chart. One of reviewers recommended to add "class" into the labels, but I didn't implement it because that will increase redundancy in the chart.
 
 #### Revise2
-The comments from the Udacity Reviewer, Reviewer4 & 5 said that separating the pie chart (or scatter plot from the previous version) from the bar chart will make the points clearer. And I agree with that. I created the second bar chart below the first bar chart. I have chosen the bar chart instead of pie matrix because the bar shows the difference in values more accurately than pie chart. I encoded colors by “Survived”: green for survived and black for dead. 
+The comments from the Udacity Reviewer, Reviewer4 & 5 said that separating the pie chart (or scatter plot from the previous version) from the bar chart will make the points clearer. And I agree with that. I created the second bar chart below the first bar chart. I have chosen the bar chart instead of pie matrix because the bar shows the difference in values more accurately than pie chart. I encoded colors by “Survived”: green for survived and black for dead. [See my blocks.org](http://bl.ocks.org/judemoon/raw/c697c6d39b10247a884446a82bb028e8/)
 
 The first bar chart focuses on relative survival rate within each group, meaning that the sample number of each group was relativized to 100% for the y axis. The second chart focuses on absolute survival count, emphasizing the difference in group size. The tricky thing on the second chart was that I can encode colors either by survived or sex. I decided to encode colors by survived and updated the x-axis title to describe that a pair of "Female" and "Male" bars are shown in each class. The second chart alone may not be very descriptive because there is no clear encoding of "Female" and "Male" and viewers can be confused by this. However, I think that viewers see the first chart and can learn the order of bars, and then they can understand the second chart without trouble. Plus, the tooltip can guide the right label for each bar.
 
