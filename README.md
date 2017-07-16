@@ -1,6 +1,6 @@
 # Make Effective Data Visualization Project
 
-June 2017, by Jude Moon
+June-July 2017, by Jude Moon
 
 ## Summary
 The objective of this project is to create an effective visualization of Titanic dataset, which contains samples (891 out of total 2,224 people including passengers and crew on board) of demographics and passenger information such as passenger class, sex, age, survived (0: dead and 1: survived), etc. 
@@ -68,6 +68,16 @@ Choice #3
 ### Reviewer3
 I believe choice #1, the bar chart, is the best. It is easy to read and understand. You may want to add labels for the x-axis meaning 1st class, 2nd class, and 3rd class to improve it.
 
+### Reviewer4
+I think the Bar Chart is the easiest to understand, but I wonder if the scatter plot can be shown in a different way. Perhaps that information is better suited on the tooltip, or animated outside the chart area.The parralel sets plot is interesting and could be improved by labelling or a legend on the colors. (ie. instead of yes/no, state survived/not survived). Otherwise it's really creative.
+
+### Reviewer5
+I like the different types of visuals that you created. Out of the three, I think the bar chart represent the data better. It seems like you were trying to plot a black dot as the total for each sex for each bar and that was a little confusing to me. You could consider updating the plot with the totals only?
+
+### Udacity Reviewer by the first project submission
+Great work with the overall design of the visualization. You have successfully represented sample size of each demographic with a pie chart that uses area of the pie to encode number of passengers rather than radius (which is a common pitfall). The colors for the sex and survival features are both intuitive and offer easy interpretation :clap:
+
+The only required change here should be some way to interpret the group size from looking at the plot (ie a legend). Alternatively you could format the y-axis of the second chart to be smaller and show a few tick marks. Essentially, there needs to be some way to interpret the size of the pie charts on the visualization. You may be able to get away with just the tooltip, but in that case the y-axis with Group Size should be removed. I would make that the title for chart 2 instead of the y-axis. Try and see if you can create a legend for the pie chart size first, and then go from there.
 
 ## Design Part2. after coding and getting feedback
 
