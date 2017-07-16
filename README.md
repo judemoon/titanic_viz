@@ -1,7 +1,8 @@
 # Make Effective Data Visualization Project
 
 June-July 2017, by Jude Moon
-[html link](http://bl.ocks.org/judemoon/raw/3c619690fc6e2910abd1eed97b09242d/)
+
+[project html page link](http://bl.ocks.org/judemoon/raw/3c619690fc6e2910abd1eed97b09242d/)
 
 ## Summary
 The objective of this project is to create an effective visualization of Titanic dataset, which contains samples (891 out of total 2,224 people including passengers and crew on board) of demographics and passenger information such as passenger class, sex, age, survived (0: dead and 1: survived), etc. 
