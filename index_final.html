@@ -1,125 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="author" content="Jude moon">
-  <title>Titanic Data Visualization</title>
-  <script src="http://d3js.org/d3.v4.min.js"></script>
-  <script src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="author" content="Jude moon">
+    <title>Titanic Data Visualization</title>
 
-  <style>
-      h1 {
-        background-color: black;
-        color: floralwhite;
-        font-family: Helvetica, sans-serif;
-        width: 100%;
-        height: 80px;
-        text-align: center;
-        padding-top: 30px;
-      }
+    <!-- load d3 and dimple libraries -->
+    <script src="http://d3js.org/d3.v4.min.js"></script>
+    <script src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script>
 
-      h2 {
-        font-size: 1.4em;
-        text-transform: uppercase;
-        font-family: Helvetica;
-        color: #000;
-        margin-top: 0;
-      }
+    <!-- add styles to text and graphics -->
+    <style>
+        h1 {
+            background-color: black;
+            color: floralwhite;
+            font-family: Helvetica, sans-serif;
+            width: 100%;
+            height: 80px;
+            text-align: center;
+            padding-top: 30px;
+        }
 
-      h3 {
-        font-family: Helvetica, sans-serif;
-        text-align: center;
-      }
+        h2 {
+            font-size: 1.4em;
+            text-transform: uppercase;
+            font-family: Helvetica;
+            color: #000;
+            margin-top: 0;
+        }
 
-      div.text {
-        font-family: Helvetica;
-        padding: 5px;
-        margin: 20px;
-        border-radius: 10px; 
-      }
+        h3 {
+            font-family: Helvetica, sans-serif;
+            text-align: center;
+        }
 
+        div.text {
+            font-family: Helvetica;
+            padding: 5px;
+            margin: 20px;
+            border-radius: 10px;
+        }
     </style>
-  </head>
+</head>
+
 <body>
-  <h1 class="main-title">Titanic Survivors</h1>
-  <h3 class="main-author">by Jude Moon</h3>
-  <h3 class="main-date">June 2017</h3>
-  <div class="summary">
-    <h2 class="text-title">Summary</h2>
-    <div class="text">
-      <p>The objective of this project is to create effective visualizations of Titanic dataset, which contains samples (891 out of total 2,224 people including passengers and crew on board) of demographics and passenger information such as passenger class, sex, age, survived (0: dead and 1: survived), etc.</p>
-      <p>The key story I would like to convey is that females and higher socio-economic status (1st and 2nd classes) more likely survived from the Titanic disaster than males and lower socio-economic status (3rd class). The groups of 1st and 2nd class females had a survival rate greater than 92%. This was far greater than the average survival rate of the sample, which was 38%.</p>
-      <p>Considering that females were 35% and females with 1st and 2nd classes were only 24% of total sample size, the evidence that such minor group showed greater survival infers that the people put on lifeboats was not randomly taken but selectively. This supports that features of being female and higher classes were top priorities to be put on lifeboats.</p>
-      </br>
-      </br>
-      </br>
+    <h1 class="main-title">Titanic Survivors</h1>
+    <h3 class="main-author">by Jude Moon</h3>
+    <h3 class="main-date">June-July 2017</h3>
+    
+    <!-- add intro text to the page body -->
+    <div class="summary">
+        <h2 class="text-title">Summary</h2>
+        <div class="text">
+            <p>The objective of this project is to create effective visualizations of Titanic dataset, which contains samples (891 out of total 2,224 people including passengers and crew on board) of demographics and passenger information such as passenger class, sex, age, survived (0: dead and 1: survived), etc.</p>
+            <p>The key story I would like to convey is that females and higher socio-economic status (1st and 2nd classes) more likely survived from the Titanic disaster than males and lower socio-economic status (3rd class). The groups of 1st and 2nd class females had a survival rate greater than 92%. This was far greater than the average survival rate of the sample, which was 38%.</p>
+            </br>
+            </br>
+            </br>
+        </div>
     </div>
-  </div>
 
-  <div class="plot">
-    <h2 class="plot-title">Final Choice: Bar + Pie Chart</h2>
-    <div id="plotContainer"> 
-    	<div class="main_plot"></div>
-    	<div class="sub_plot"></div>
-    	
-    </div>
-    <script type="text/javascript">
-
-        "use strict"; 
-        var margin = 100,
-            width = 1000 - margin,
-            height = 600 - margin;
-
-        var svg1 = dimple.newSvg(".sub_plot")
-        	.attr("width", width + margin)
-        	.attr("height", 300);
-
-        var svg2 = dimple.newSvg(".main_plot")
-          .attr("width", width + margin)
-          .attr("height", height + margin);
-
-        d3.csv("titanic_pie.csv", function (data) {
-        	var chart = new dimple.chart(svg1, data);
-        	chart.defaultColors = [
-          		new dimple.color("black"),
-          		new dimple.color("#56bc4b"),
-        	];
-        	var x = chart.addCategoryAxis("x", ["Class","Sex"]);
-        	x.hidden = true;
-        	var y = chart.addCategoryAxis("y", "All");
-        	y.fontSize = "20px";
-        	y.title = "Group Size";
-        	chart.addMeasureAxis("p", "Count");
-        	var z = chart.addMeasureAxis("z", "Count");
-        	var pies = chart.addSeries("Survived", dimple.plot.pie);
-        	pies.radius = z;
-        	z.overrideMax = 150;
-        	var legend = chart.addLegend(250, 250, 380, 20, "right");
-        	legend.fontSize = "20px";
-        	chart.draw();
-        })
-
-        d3.csv("titanic_bar.csv", function (data) {
-        	var chart = new dimple.chart(svg2, data);
-        	chart.defaultColors = [
-          		new dimple.color("#d6242d"),
-          		new dimple.color("#1179db"),
-        	];
-        	var x = chart.addCategoryAxis("x", ["Class","Sex"]);
-        	x.fontSize = "20px";
-        	var y = chart.addMeasureAxis("y", "Percent");
-        	y.fontSize = "20px";
-        	y.title = "Survival Percentage (%)";
-        	chart.addSeries("Sex", dimple.plot.bar);
-        	var legend = chart.addLegend(400, 40, 380, 20, "left");
-        	legend.fontSize = "20px";
-        	chart.draw();
-        });
-
+    <!-- add data visualization -->
+    <div class="plot">
+        <h2 class="plot-title">Relative survival within each group</h2>
+        <div id="plotContainer1"></div>
         
-    </script>
-  </br>
-  </div>
+        <script type="text/javascript">
+            "use strict";
 
+            // declare margin and svg
+            var margin = 100,
+                width = 1000 - margin,
+                height = 600 - margin;
+            var svg1 = dimple.newSvg("#plotContainer1")
+                .attr("width", width + margin)
+                .attr("height", height + margin);
+
+            // load data and draw the first chart
+             d3.csv("titanic_bar.csv", function(data) {
+                var chart = new dimple.chart(svg1, data);
+                chart.defaultColors = [
+                    new dimple.color("#d6242d"),
+                    new dimple.color("#1179db"),
+                ];
+                var x = chart.addCategoryAxis("x", ["Class", "Sex"]);
+                x.fontSize = "20px";
+                var y = chart.addMeasureAxis("y", "Percent");
+                y.fontSize = "20px";
+                y.title = "Survival Percentage (%)";
+                chart.addSeries("Sex", dimple.plot.bar);
+                var legend = chart.addLegend(400, 40, 380, 20, "left");
+                legend.fontSize = "20px";
+                chart.draw();
+              });
+        </script>
+        </br>
+        </br>
+        <h2 class="plot-title">Absolute survival</h2>
+        <div id="plotContainer2"></div>
+        
+        <script type="text/javascript">
+            "use strict";
+
+            // declare margin and svg
+            var margin = 100,
+                width = 1000 - margin,
+                height = 600 - margin;
+            var svg2 = dimple.newSvg("#plotContainer2")
+                .attr("width", width + margin)
+                .attr("height", height + margin);
+
+          // load data and draw the second chart
+           d3.csv("titanic_pie.csv", function(data) {
+                var chart = new dimple.chart(svg2, data);
+                chart.defaultColors = [
+                    new dimple.color("#56bc4b"),
+                    new dimple.color("black"),
+                    new dimple.color("#d6242d"),
+                    new dimple.color("#1179db"),
+                ];
+                var x = chart.addCategoryAxis("x", ["Class", "Sex"]);
+                x.addOrderRule(["1st", "2nd", "3rd"]);
+                x.addGroupOrderRule(["Female", "Male"]);
+                x.fontSize = "20px";
+                x.title = "A pair of Female and Male within each Class"
+                var y = chart.addMeasureAxis("y", "Count");
+                y.fontSize = "20px";
+                y.title = "Count";
+                var color = chart.addSeries('Survived', dimple.plot.bar);
+                color.addOrderRule(["Survived", "Dead"]);
+
+                var legend = chart.addLegend(400, 40, 380, 20, "left");
+                legend.fontSize = "20px";
+                chart.draw();
+            });
+        </script>
+        </br>
+        </br>
+        </br>
+    </div>
+    <!-- add outro text to the page body -->
+    <div class="Interpretation">
+        <h2 class="text-title">Interpretation</h2>
+        <div class="text">
+            <p>Considering that females were 35% and females with 1st and 2nd classes were only 24% of total sample size, the evidence that such minor group showed greater survival infers that the people put on lifeboats was not randomly taken but selectively. This supports that features of being female and higher classes were top priorities to be put on lifeboats.</p>
+            </br>
+        </div>
+    </div>
 </body>
 </html>
